@@ -22,9 +22,7 @@ function useActiveSection(ids: string[]) {
   const [active, setActive] = useState<string | null>(null);
 
   useEffect(() => {
-    const elements = ids
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => el !== null);
+    const elements = Array.from(document.querySelectorAll<HTMLElement>("main section"));
     if (elements.length === 0) return;
 
     const observer = new IntersectionObserver(
@@ -32,7 +30,8 @@ function useActiveSection(ids: string[]) {
         const visible = entries.filter((e) => e.isIntersecting);
         if (visible.length > 0) {
           visible.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-          setActive(visible[0].target.id);
+          const id = visible[0].target.id;
+          setActive(ids.includes(id) ? id : null);
         }
       },
       { rootMargin: "-45% 0px -50% 0px", threshold: [0, 0.25, 0.5] },

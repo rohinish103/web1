@@ -57,7 +57,7 @@ export function HowItWorks() {
         />
 
         <div className="relative mt-16">
-          <div aria-hidden="true" className="absolute top-7 right-[16.66%] left-[16.66%] hidden h-px bg-violet/15 lg:block">
+          <div aria-hidden="true" className="absolute top-7 right-[16.66%] left-[16.66%] hidden h-0.5 rounded-full bg-violet/10 lg:block">
             <motion.div
               className="h-full origin-left bg-gradient-to-r from-violet via-fuchsia-400 to-sky"
               initial={{ scaleX: 0 }}

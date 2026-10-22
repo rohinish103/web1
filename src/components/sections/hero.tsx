@@ -22,7 +22,9 @@ export function Hero() {
               <Sparkles className="size-3" aria-hidden="true" />
               Preview
             </span>
-            <span className="text-muted-foreground">Mimi is coming soon — join the waitlist</span>
+            <span className="text-muted-foreground">
+              <span className="hidden sm:inline">Mimi is coming soon — </span>Join the waitlist
+            </span>
             <ArrowRight
               className="size-3.5 text-muted-foreground transition-transform group-hover:translate-x-0.5"
               aria-hidden="true"
@@ -34,6 +36,7 @@ export function Hero() {
             className="text-[2.9rem] leading-[0.98] font-semibold tracking-[-0.035em] text-balance text-ink sm:text-6xl lg:text-[4.5rem]"
           >
             Learn a language.{" "}
+            <br className="hidden sm:block" />
             <SerifAccent>Make a connection.</SerifAccent>
           </h1>
 

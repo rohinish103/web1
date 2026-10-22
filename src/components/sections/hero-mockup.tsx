@@ -9,15 +9,15 @@ import { cn } from "@/lib/utils";
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const floatingGlyphs = [
-  { glyph: "あ", className: "top-[6%] -left-[4%] text-rose-500", delay: "0s", rotate: "-8deg" },
+  { glyph: "あ", className: "top-[6%] -left-1 sm:-left-[4%] text-rose-500", delay: "0s", rotate: "-8deg" },
   { glyph: "한", className: "top-[-4%] right-[18%] text-teal-600", delay: "1.2s", rotate: "6deg" },
-  { glyph: "Ñ", className: "bottom-[30%] -right-[5%] text-amber-600", delay: "2.1s", rotate: "10deg" },
+  { glyph: "Ñ", className: "bottom-[30%] -right-1 sm:-right-[5%] text-amber-600", delay: "2.1s", rotate: "10deg" },
   { glyph: "中", className: "bottom-[-3%] right-[30%] text-red-500", delay: "0.6s", rotate: "-6deg" },
   { glyph: "अ", className: "top-[38%] -left-[9%] text-orange-500 hidden sm:flex", delay: "1.8s", rotate: "4deg" },
 ];
 
 const floatingBubbles = [
-  { text: "¡Hola!", className: "top-[18%] -right-[7%]", delay: "0.4s" },
+  { text: "¡Hola!", className: "top-[18%] -right-[7%] hidden sm:block", delay: "0.4s" },
   { text: "Bonjour !", className: "bottom-[14%] -right-[2%] hidden sm:block", delay: "1.6s" },
   { text: "안녕하세요", className: "-top-[7%] left-[16%] hidden sm:block", delay: "2.4s" },
 ];

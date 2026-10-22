@@ -176,7 +176,7 @@ function ChatPreview({ scenario }: { scenario: Scenario }) {
           </p>
           <p className="truncate text-sm text-muted-foreground">{scenario.place}</p>
         </div>
-        <span className="hidden items-center gap-1 rounded-full bg-amber-100 px-2.5 py-1 text-xs font-semibold text-amber-800 sm:inline-flex">
+        <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2.5 py-1 text-xs font-semibold text-amber-800">
           <Sparkles className="size-3" aria-hidden="true" />
           Preview
         </span>
@@ -184,8 +184,9 @@ function ChatPreview({ scenario }: { scenario: Scenario }) {
 
       <div className="flex items-center justify-between gap-3 bg-[oklch(0.975_0.012_295)] px-5 py-2.5 text-xs text-muted-foreground">
         <span className="inline-flex items-center gap-1.5">
-          <Info className="size-3.5" aria-hidden="true" />
-          Scripted sample conversation
+          <Info className="size-3.5 shrink-0" aria-hidden="true" />
+          <span className="hidden sm:inline">Scripted sample conversation</span>
+          <span className="sm:hidden">Scripted sample</span>
         </span>
         <div className="flex items-center gap-1">
           <button
@@ -195,7 +196,7 @@ function ChatPreview({ scenario }: { scenario: Scenario }) {
             className="inline-flex items-center gap-1 rounded-full px-2.5 py-1 font-medium text-ink outline-none transition hover:bg-white focus-visible:ring-3 focus-visible:ring-ring/50"
           >
             {showTranslations ? <EyeOff className="size-3.5" aria-hidden="true" /> : <Eye className="size-3.5" aria-hidden="true" />}
-            {showTranslations ? "Hide" : "Show"} translations
+            {showTranslations ? "Hide" : "Show"}<span className="hidden sm:inline"> translations</span>
           </button>
           <button
             type="button"

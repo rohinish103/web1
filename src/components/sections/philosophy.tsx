@@ -9,7 +9,7 @@ export function Philosophy() {
           <div className="absolute -top-32 -left-24 size-[32rem] rounded-full bg-[radial-gradient(circle,oklch(0.55_0.2_292/0.55),transparent_65%)] blur-2xl" />
           <div className="absolute -right-24 -bottom-40 size-[36rem] rounded-full bg-[radial-gradient(circle,oklch(0.6_0.14_250/0.45),transparent_65%)] blur-2xl" />
           <div className="absolute inset-0 opacity-[0.07] [background-image:radial-gradient(white_1px,transparent_1px)] [background-size:22px_22px]" />
-          <span className="font-jp absolute top-10 right-10 text-[9rem] leading-none font-bold text-white/[0.04] select-none sm:text-[14rem]">
+          <span className="font-jp absolute bottom-6 left-8 text-[9rem] leading-none font-bold text-white/[0.04] select-none sm:text-[14rem]">
             話
           </span>
         </div>
