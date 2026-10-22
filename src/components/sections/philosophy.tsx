@@ -4,7 +4,7 @@ import { principles } from "@/data/content";
 export function Philosophy() {
   return (
     <section id="about" aria-labelledby="about-title" className="relative px-3 py-24 sm:px-5 sm:py-32">
-      <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-ink px-6 py-20 text-white sm:px-12 lg:px-16 lg:py-24">
+      <div className="relative mx-auto max-w-7xl overflow-clip rounded-[2.5rem] bg-ink px-6 py-20 text-white sm:px-12 lg:px-16 lg:py-24">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="absolute -top-32 -left-24 size-[32rem] rounded-full bg-[radial-gradient(circle,oklch(0.55_0.2_292/0.55),transparent_65%)] blur-2xl" />
           <div className="absolute -right-24 -bottom-40 size-[36rem] rounded-full bg-[radial-gradient(circle,oklch(0.6_0.14_250/0.45),transparent_65%)] blur-2xl" />
@@ -39,13 +39,13 @@ export function Philosophy() {
                   as="li"
                   key={p.title}
                   delay={(i % 2) * 0.08}
-                  className="group rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur transition-colors duration-500 hover:border-white/20 hover:bg-white/[0.08]"
+                  className="group rounded-3xl border border-white/10 bg-white/[0.04] p-6 transition-colors duration-500 hover:border-white/20 hover:bg-white/[0.08]"
                 >
                   <span className="flex size-10 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-400/30 to-sky-400/20 text-violet-100 ring-1 ring-white/10 transition-transform duration-500 group-hover:-rotate-6">
                     <Icon className="size-5" aria-hidden="true" />
                   </span>
                   <h3 className="mt-5 text-lg font-semibold tracking-tight">{p.title}</h3>
-                  <p className="mt-2 leading-relaxed text-white/65">{p.description}</p>
+                  <p className="mt-2 leading-relaxed text-white/70">{p.description}</p>
                 </Reveal>
               );
             })}

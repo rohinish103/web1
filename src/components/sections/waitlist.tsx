@@ -1,8 +1,9 @@
 "use client";
 
 import { ArrowRight, CircleCheck, Hourglass, Loader2, LogIn, Mail } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
-import { useId, useState } from "react";
+import { AnimatePresence } from "motion/react";
+import * as m from "motion/react-m";
+import { useEffect, useId, useRef, useState } from "react";
 
 import { Reveal } from "@/components/shared/reveal";
 import { Button } from "@/components/ui/button";
@@ -13,10 +14,32 @@ type FormState = "idle" | "submitting" | "done";
 
 export function Waitlist() {
   const inputId = useId();
+  const inputRef = useRef<HTMLInputElement>(null);
   const errorId = useId();
   const [email, setEmail] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [state, setState] = useState<FormState>("idle");
+
+  // Arriving from any "Get Started" link should land the cursor in the field.
+  // Skipped on touch devices, where it would pop the keyboard open unprompted.
+  useEffect(() => {
+    if (!window.matchMedia("(pointer: fine)").matches) return;
+    let timer: number | undefined;
+    const focusField = () => {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => inputRef.current?.focus({ preventScroll: true }), 700);
+    };
+    const onClick = (event: MouseEvent) => {
+      const link = (event.target as Element).closest?.("a[href$='#waitlist']");
+      if (link) focusField();
+    };
+    if (window.location.hash === "#waitlist") focusField();
+    document.addEventListener("click", onClick);
+    return () => {
+      window.clearTimeout(timer);
+      document.removeEventListener("click", onClick);
+    };
+  }, []);
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -32,7 +55,7 @@ export function Waitlist() {
 
   return (
     <section id="waitlist" aria-labelledby="waitlist-title" className="relative px-5 pt-4 pb-24 sm:pb-32">
-      <Reveal className="mx-auto grid max-w-5xl gap-8 rounded-[2rem] border border-dashed border-violet/30 bg-white/60 p-6 shadow-soft backdrop-blur sm:p-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+      <Reveal className="glass mx-auto grid max-w-5xl gap-8 rounded-[2rem] border-dashed border-violet/30 p-6 sm:p-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
         <div className="flex flex-col gap-4">
           <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold tracking-wide text-amber-800 uppercase">
             <Hourglass className="size-3.5" aria-hidden="true" />
@@ -54,7 +77,7 @@ export function Waitlist() {
         <div className="rounded-3xl bg-gradient-to-br from-[oklch(0.96_0.03_295)] to-[oklch(0.96_0.025_250)] p-5 sm:p-6">
           <AnimatePresence mode="wait" initial={false}>
             {state === "done" ? (
-              <motion.div
+              <m.div
                 key="done"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -81,9 +104,9 @@ export function Waitlist() {
                 >
                   Back
                 </Button>
-              </motion.div>
+              </m.div>
             ) : (
-              <motion.form
+              <m.form
                 key="form"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -99,6 +122,7 @@ export function Waitlist() {
                   <div className="relative flex-1">
                     <Mail className="pointer-events-none absolute top-1/2 left-4 size-4 -translate-y-1/2 text-muted-foreground" aria-hidden="true" />
                     <input
+                      ref={inputRef}
                       id={inputId}
                       type="email"
                       inputMode="email"
@@ -135,7 +159,7 @@ export function Waitlist() {
                     Prototype only — nothing is stored or sent.
                   </p>
                 )}
-              </motion.form>
+              </m.form>
             )}
           </AnimatePresence>
         </div>

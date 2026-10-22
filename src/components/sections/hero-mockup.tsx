@@ -1,15 +1,17 @@
 "use client";
 
 import { BookmarkPlus, Mic, Volume2 } from "lucide-react";
-import { motion } from "motion/react";
+import * as m from "motion/react-m";
 
+import { ChatBubble, WaveBars } from "@/components/shared/chat";
 import { LogoMark } from "@/components/shared/logo";
+import { TypingIndicator } from "@/components/shared/typing-indicator";
 import { cn } from "@/lib/utils";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const floatingGlyphs = [
-  { glyph: "あ", className: "top-[6%] -left-1 sm:-left-[4%] text-rose-500", delay: "0s", rotate: "-8deg" },
+  { glyph: "あ", className: "-top-5 left-6 sm:top-[6%] sm:-left-[4%] text-rose-500", delay: "0s", rotate: "-8deg" },
   { glyph: "한", className: "top-[-4%] right-[18%] text-teal-600", delay: "1.2s", rotate: "6deg" },
   { glyph: "Ñ", className: "bottom-[30%] -right-1 sm:-right-[5%] text-amber-600", delay: "2.1s", rotate: "10deg" },
   { glyph: "中", className: "bottom-[-3%] right-[30%] text-red-500", delay: "0.6s", rotate: "-6deg" },
@@ -24,11 +26,9 @@ const floatingBubbles = [
 
 export function HeroMockup() {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30, scale: 0.97 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 1, delay: 0.25, ease }}
-      className="relative mx-auto w-full max-w-md lg:max-w-none"
+    <div
+      style={{ animationDelay: "200ms" }}
+      className="animate-rise relative mx-auto w-full max-w-md lg:max-w-none"
       role="img"
       aria-label="Preview of a Mimi lesson: Mimi greets the learner in Japanese with “Konnichiwa”, the learner replies, and a vocabulary card explains the word."
     >
@@ -82,43 +82,29 @@ export function HeroMockup() {
           </div>
 
           <div className="font-jp flex min-h-[19rem] flex-col gap-3 px-4 py-5">
-            <Message delay={0.9} side="tutor">
+            <Message instant side="tutor">
               <p className="text-lg font-medium">こんにちは！</p>
               <p className="text-xs text-muted-foreground">Konnichiwa! · Hello!</p>
             </Message>
-            <Message delay={1.6} side="learner">
+            <Message delay={0.9} side="learner">
               <p className="text-lg font-medium">こんにちは！</p>
             </Message>
-            <Message delay={2.3} side="tutor">
+            <Message delay={1.6} side="tutor">
               <p className="text-base font-medium">よくできました！お名前は？</p>
               <p className="text-xs text-muted-foreground">Yoku dekimashita! Onamae wa? · Well done! Your name?</p>
             </Message>
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 3, duration: 0.4 }}
-              className="flex w-fit items-center gap-1 rounded-2xl rounded-bl-md bg-violet/8 px-3.5 py-3"
+              transition={{ delay: 2.3, duration: 0.4 }}
             >
-              {[0, 1, 2].map((i) => (
-                <motion.span
-                  key={i}
-                  className="size-1.5 rounded-full bg-violet/60"
-                  animate={{ y: [0, -3, 0], opacity: [0.5, 1, 0.5] }}
-                  transition={{ duration: 1, repeat: Infinity, delay: i * 0.15 }}
-                />
-              ))}
-            </motion.div>
+              <TypingIndicator />
+            </m.div>
           </div>
 
           <div className="flex items-center gap-3 border-t border-violet/10 bg-white/70 px-4 py-3.5">
-            <div className="flex h-9 flex-1 items-center gap-[3px] rounded-full bg-muted px-4">
-              {Array.from({ length: 22 }).map((_, i) => (
-                <span
-                  key={i}
-                  className="h-4 w-[3px] origin-center animate-wave rounded-full bg-violet/50"
-                  style={{ animationDelay: `${(i % 7) * 0.12}s` }}
-                />
-              ))}
+            <div className="flex h-9 flex-1 items-center rounded-full bg-muted px-4">
+              <WaveBars count={22} stagger={0.09} className="h-4 gap-[3px]" barClassName="w-[3px] bg-violet/50" />
             </div>
             <span className="flex size-10 items-center justify-center rounded-full bg-violet text-white shadow-[0_6px_20px_-6px_oklch(0.55_0.2_292)]">
               <Mic className="size-4.5" />
@@ -127,7 +113,7 @@ export function HeroMockup() {
         </div>
       </div>
 
-      <motion.div
+      <m.div
         aria-hidden="true"
         initial={{ opacity: 0, x: -20, rotate: -6 }}
         animate={{ opacity: 1, x: 0, rotate: -4 }}
@@ -136,7 +122,7 @@ export function HeroMockup() {
       >
         <div className="animate-float-slow rounded-3xl border border-white/80 bg-white/90 p-4 shadow-lift backdrop-blur-xl [animation-delay:1s]">
           <div className="flex items-center justify-between">
-            <span className="rounded-full bg-rose-100 px-2 py-0.5 text-[10px] font-semibold tracking-wide text-rose-600 uppercase">
+            <span className="rounded-full bg-rose-100 px-2 py-0.5 text-[10px] font-semibold tracking-wide text-rose-700 uppercase">
               New word
             </span>
             <div className="flex gap-1 text-muted-foreground">
@@ -150,33 +136,33 @@ export function HeroMockup() {
             Hello · Good afternoon. A friendly daytime greeting.
           </p>
         </div>
-      </motion.div>
-    </motion.div>
+      </m.div>
+    </div>
   );
 }
 
 function Message({
   children,
   side,
-  delay,
+  delay = 0,
+  instant = false,
 }: {
   children: React.ReactNode;
   side: "tutor" | "learner";
-  delay: number;
+  delay?: number;
+  /** Paint immediately with no entrance, so the first message is available for LCP. */
+  instant?: boolean;
 }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 10, scale: 0.96 }}
+    <m.div
+      initial={instant ? false : { opacity: 0, y: 10, scale: 0.96 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ delay, duration: 0.5, ease }}
-      className={cn(
-        "max-w-[85%] rounded-2xl px-4 py-2.5",
-        side === "tutor"
-          ? "self-start rounded-bl-md bg-violet/8 text-ink"
-          : "self-end rounded-br-md bg-gradient-to-br from-violet to-[oklch(0.6_0.16_265)] text-white [&_p]:text-white",
-      )}
+      className={cn("max-w-[85%]", side === "tutor" ? "self-start" : "self-end")}
     >
-      {children}
-    </motion.div>
+      <ChatBubble side={side} className={side === "learner" ? "[&_p]:text-white" : undefined}>
+        {children}
+      </ChatBubble>
+    </m.div>
   );
 }

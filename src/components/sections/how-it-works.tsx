@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowRight, Check } from "lucide-react";
-import { motion } from "motion/react";
+import * as m from "motion/react-m";
 
 import { SectionHeading, SerifAccent } from "@/components/shared/section-heading";
 import { steps } from "@/data/content";
@@ -58,7 +58,7 @@ export function HowItWorks() {
 
         <div className="relative mt-16">
           <div aria-hidden="true" className="absolute top-7 right-[16.66%] left-[16.66%] hidden h-0.5 rounded-full bg-violet/10 lg:block">
-            <motion.div
+            <m.div
               className="h-full origin-left bg-gradient-to-r from-violet via-fuchsia-400 to-sky"
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
@@ -66,13 +66,12 @@ export function HowItWorks() {
               transition={{ duration: 1.4, ease }}
             />
           </div>
-          <div aria-hidden="true" className="absolute top-7 bottom-7 left-7 w-px bg-gradient-to-b from-violet/40 via-fuchsia-300/40 to-sky/40 lg:hidden" />
 
           <ol className="relative grid gap-6 lg:grid-cols-3 lg:gap-8">
             {steps.map((step, i) => {
               const Icon = step.icon;
               return (
-                <motion.li
+                <m.li
                   key={step.number}
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -80,13 +79,19 @@ export function HowItWorks() {
                   transition={{ duration: 0.7, delay: 0.15 + i * 0.15, ease }}
                   className="relative flex gap-5 lg:flex-col lg:items-center lg:gap-6 lg:text-center"
                 >
+                  {i < steps.length - 1 ? (
+                    <span
+                      aria-hidden="true"
+                      className="absolute top-14 -bottom-6 left-7 w-px -translate-x-1/2 bg-gradient-to-b from-violet/40 to-sky/30 lg:hidden"
+                    />
+                  ) : null}
                   <div className="relative z-10 flex size-14 shrink-0 items-center justify-center rounded-2xl border border-white bg-white text-violet shadow-lift">
                     <Icon className="size-6" aria-hidden="true" />
                     <span className="absolute -top-2 -right-2 flex size-6 items-center justify-center rounded-full bg-ink text-[10px] font-semibold text-white">
                       {i + 1}
                     </span>
                   </div>
-                  <div className="flex flex-1 flex-col gap-4 rounded-[1.75rem] border border-white/80 bg-white/70 p-6 shadow-soft backdrop-blur lg:w-full lg:items-center">
+                  <div className="glass flex flex-1 flex-col gap-4 rounded-[1.75rem] p-6 lg:w-full lg:items-center">
                     <div>
                       <p className="text-xs font-semibold tracking-widest text-violet uppercase">Step {step.number}</p>
                       <h3 className="mt-2 text-xl font-semibold tracking-tight text-ink">{step.title}</h3>
@@ -99,7 +104,7 @@ export function HowItWorks() {
                       {stepDetails[i]}
                     </div>
                   </div>
-                </motion.li>
+                </m.li>
               );
             })}
           </ol>

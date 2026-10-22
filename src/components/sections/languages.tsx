@@ -19,7 +19,7 @@ export function Languages() {
           description="Mimi is being built to speak with learners around the world. Here is the language coverage we're planning — tutors will roll out gradually, starting with Japanese previews."
         />
 
-        <ul className="mt-14 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5">
+        <ul className="mt-14 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-5">
           {languages.map((language, i) => (
             <Reveal as="li" key={language.code} delay={(i % 5) * 0.06} y={18} className="h-full">
               <LanguageCard language={language} />
@@ -47,7 +47,7 @@ function LanguageCard({ language }: { language: Language }) {
   return (
     <article
       lang={language.code}
-      className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/80 bg-white/70 p-4 shadow-soft backdrop-blur transition-all duration-500 ease-out hover:-translate-y-1.5 hover:shadow-lift sm:p-5"
+      className="glass group relative flex h-full flex-col overflow-hidden rounded-3xl p-4 transition-all duration-500 ease-out hover:-translate-y-1.5 hover:shadow-lift focus-within:shadow-lift md:p-4 lg:p-5"
     >
       <div
         aria-hidden="true"
@@ -58,13 +58,13 @@ function LanguageCard({ language }: { language: Language }) {
       />
 
       <div className="relative flex items-start justify-between">
-        <span className="flex size-10 items-center justify-center rounded-2xl bg-white/90 text-ink shadow-soft transition-transform duration-500 group-hover:rotate-[-8deg]">
+        <span className="flex size-10 shrink-0 items-center justify-center rounded-2xl bg-white/90 text-ink shadow-soft transition-transform duration-500 group-hover:rotate-[-8deg] md:size-9 lg:size-10">
           <Icon className="size-4.5" aria-hidden="true" />
         </span>
         <span
           className={cn(
             "rounded-full px-2 py-0.5 text-[10px] font-semibold tracking-wide uppercase",
-            isPreview ? "bg-violet text-white" : "border border-violet/20 bg-white/70 text-violet",
+            isPreview ? "bg-violet text-white" : "border border-violet/25 bg-white/80 text-[oklch(0.45_0.2_292)]",
           )}
         >
           {isPreview ? "Preview" : "Planned"}
@@ -73,7 +73,7 @@ function LanguageCard({ language }: { language: Language }) {
 
       <span
         aria-hidden="true"
-        className="font-jp relative mt-6 text-5xl leading-none font-semibold text-ink/90 transition-transform duration-500 group-hover:scale-110 sm:text-6xl"
+        className="font-jp relative mt-6 origin-left text-5xl leading-none font-semibold text-ink/90 transition-transform duration-500 group-hover:scale-110 sm:text-6xl md:text-5xl lg:text-6xl"
       >
         {language.glyph}
       </span>
@@ -83,7 +83,7 @@ function LanguageCard({ language }: { language: Language }) {
           {language.name}
         </h3>
         <p className="font-jp text-sm text-muted-foreground">{language.nativeName}</p>
-        <p className="font-jp mt-3 h-5 translate-y-1 text-sm font-medium text-violet opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:opacity-100">
+        <p className="font-jp mt-3 h-5 text-sm font-medium text-violet transition-all duration-500 [@media(hover:hover)]:translate-y-1 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:translate-y-0 [@media(hover:hover)]:group-hover:opacity-100">
           {language.greeting}
         </p>
       </div>

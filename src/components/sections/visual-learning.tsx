@@ -1,7 +1,7 @@
 "use client";
 
 import { Lightbulb, Pause, Play, Volume2 } from "lucide-react";
-import { motion } from "motion/react";
+import * as m from "motion/react-m";
 import { Tabs as TabsPrimitive } from "radix-ui";
 import { useCallback, useEffect, useRef, useState } from "react";
 
@@ -35,23 +35,23 @@ export function VisualLearning() {
           <TabsPrimitive.Root value={activeId} onValueChange={setActiveId} className="flex flex-col gap-5">
             <TabsPrimitive.List
               aria-label="Example vocabulary"
-              className="mx-auto flex max-w-full snap-x gap-2 overflow-x-auto rounded-full border border-white/80 bg-white/60 p-1.5 shadow-soft backdrop-blur [scrollbar-width:none]"
+              className="glass mx-auto flex max-w-full snap-x gap-2 overflow-x-auto rounded-full p-1.5 [scrollbar-width:none]"
             >
               {vocabulary.map((item) => (
                 <TabsPrimitive.Trigger
                   key={item.id}
                   value={item.id}
-                  className="relative flex shrink-0 snap-start items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-muted-foreground outline-none transition-colors hover:text-ink focus-visible:ring-3 focus-visible:ring-ring/50 data-[state=active]:text-white"
+                  className="relative flex shrink-0 snap-start items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-[oklch(0.42_0.04_285)] outline-none transition-colors hover:text-ink focus-visible:ring-3 focus-visible:ring-ring/50 data-[state=active]:text-white"
                 >
                   {activeId === item.id ? (
-                    <motion.span
+                    <m.span
                       layoutId="vocab-pill"
-                      className="absolute inset-0 rounded-full bg-gradient-to-r from-violet to-[oklch(0.6_0.16_265)] shadow-[0_6px_20px_-8px_oklch(0.5_0.22_290)]"
+                      className="bg-brand absolute inset-0 rounded-full shadow-[0_6px_20px_-8px_oklch(0.5_0.22_290)]"
                       transition={{ type: "spring", bounce: 0.2, duration: 0.5 }}
                     />
                   ) : null}
                   <span className="font-jp relative">{item.word}</span>
-                  <span className="relative hidden opacity-80 sm:inline">{item.meaning}</span>
+                  <span className="relative hidden sm:inline">{item.meaning}</span>
                 </TabsPrimitive.Trigger>
               ))}
             </TabsPrimitive.List>
@@ -73,15 +73,15 @@ export function VisualLearning() {
 
 function VocabularyCard({ item }: { item: VocabularyItem }) {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 14 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease }}
-      className="grid gap-4 rounded-[2rem] border border-white/80 bg-white/70 p-3 shadow-lift backdrop-blur-xl sm:p-4 lg:grid-cols-[0.9fr_1.1fr]"
+      className="glass grid gap-4 rounded-[2rem] p-3 shadow-lift sm:p-4 lg:grid-cols-[0.9fr_1.1fr]"
     >
       <div className="relative flex min-h-72 items-center justify-center overflow-hidden rounded-[1.6rem] bg-gradient-to-br from-[oklch(0.95_0.04_300)] via-[oklch(0.97_0.02_330)] to-[oklch(0.95_0.035_250)] p-8">
         <div aria-hidden="true" className="absolute inset-0 bg-grid opacity-70 mask-[radial-gradient(circle_at_center,black,transparent_70%)]" />
-        <motion.div
+        <m.div
           key={item.id}
           initial={{ scale: 0.85, rotate: -4, opacity: 0 }}
           animate={{ scale: 1, rotate: 0, opacity: 1 }}
@@ -89,7 +89,7 @@ function VocabularyCard({ item }: { item: VocabularyItem }) {
           className="relative size-56 drop-shadow-[0_20px_30px_oklch(0.5_0.15_290/0.2)] sm:size-64"
         >
           <VocabularyArt name={item.illustration} />
-        </motion.div>
+        </m.div>
         <span className="absolute top-4 left-4 rounded-full bg-white/80 px-3 py-1 text-xs font-medium text-muted-foreground shadow-soft backdrop-blur">
           {item.partOfSpeech}
         </span>
@@ -107,7 +107,7 @@ function VocabularyCard({ item }: { item: VocabularyItem }) {
               <dd className="font-semibold text-ink">{item.romanization}</dd>
             </div>
             <div className="rounded-2xl bg-sky/25 px-4 py-2.5">
-              <dt className="text-[11px] font-medium tracking-wide text-[oklch(0.45_0.12_250)] uppercase">Meaning</dt>
+              <dt className="text-[11px] font-medium tracking-wide text-[oklch(0.4_0.12_250)] uppercase">Meaning</dt>
               <dd className="font-semibold text-ink">{item.meaning}</dd>
             </div>
           </dl>
@@ -117,7 +117,7 @@ function VocabularyCard({ item }: { item: VocabularyItem }) {
 
         <div className="grid gap-3 sm:grid-cols-2">
           {item.sentences.map((s, i) => (
-            <motion.figure
+            <m.figure
               key={s.text}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -130,11 +130,11 @@ function VocabularyCard({ item }: { item: VocabularyItem }) {
               </p>
               <p className="mt-1 text-sm text-violet">{s.romanization}</p>
               <figcaption className="mt-1 text-sm text-muted-foreground">{s.translation}</figcaption>
-            </motion.figure>
+            </m.figure>
           ))}
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -183,7 +183,7 @@ function PronunciationGuide({ item }: { item: VocabularyItem }) {
       <ol className="mt-3 flex flex-wrap gap-2" aria-label="Syllables">
         {item.syllables.map((s, i) => (
           <li key={`${s.kana}-${i}`}>
-            <motion.span
+            <m.span
               animate={activeIndex === i ? { scale: 1.08, y: -3 } : { scale: 1, y: 0 }}
               transition={{ type: "spring", bounce: 0.5, duration: 0.4 }}
               className={cn(
@@ -199,7 +199,7 @@ function PronunciationGuide({ item }: { item: VocabularyItem }) {
               <span className={cn("text-xs", activeIndex === i ? "text-white/85" : "text-muted-foreground")}>
                 {s.romaji}
               </span>
-            </motion.span>
+            </m.span>
           </li>
         ))}
       </ol>
