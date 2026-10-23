@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Mimi — Learn a language. Make a connection.";
+export const alt = "Yumi — Learn a language. Make a connection.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -30,7 +30,7 @@ export default async function Image() {
               display: "flex",
             }}
           />
-          <div style={{ fontSize: 48, fontWeight: 700 }}>mimi</div>
+          <div style={{ fontSize: 48, fontWeight: 700 }}>yumi</div>
         </div>
         <div style={{ marginTop: 60, fontSize: 78, fontWeight: 700, letterSpacing: -2, lineHeight: 1.05 }}>
           Learn a language.

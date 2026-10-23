@@ -117,7 +117,7 @@ export function SiteHeader() {
           <SheetContent side="right" className="w-[85%] border-l-0 bg-cream/95 backdrop-blur-xl">
             <SheetHeader className="pt-5">
               <SheetTitle className="sr-only">Navigation</SheetTitle>
-              <SheetDescription className="sr-only">Jump to a section of the Mimi page.</SheetDescription>
+              <SheetDescription className="sr-only">Jump to a section of the Yumi page.</SheetDescription>
               <Logo />
             </SheetHeader>
             <nav aria-label="Mobile" className="px-4">

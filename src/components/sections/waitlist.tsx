@@ -62,7 +62,7 @@ export function Waitlist() {
             Coming soon
           </span>
           <h2 id="waitlist-title" className="text-3xl font-semibold tracking-tight text-balance text-ink sm:text-4xl">
-            Mimi isn&apos;t open yet — but it&apos;s on its way.
+            Yumi isn&apos;t open yet — but it&apos;s on its way.
           </h2>
           <p className="leading-relaxed text-muted-foreground">
             This page is an early prototype. Sign-up, log-in, and live tutors will arrive with our first

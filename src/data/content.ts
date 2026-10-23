@@ -72,14 +72,14 @@ export interface Step {
 export const steps: Step[] = [
   {
     number: "01",
-    title: "Tell Mimi your language",
+    title: "Tell Yumi your language",
     description: "Speak in your preferred language and select what you want to learn.",
     icon: Languages,
   },
   {
     number: "02",
     title: "Learn at your level",
-    description: "Mimi adapts lessons to your current knowledge, from your very first word onward.",
+    description: "Yumi adapts lessons to your current knowledge, from your very first word onward.",
     icon: Sprout,
   },
   {
@@ -99,7 +99,7 @@ export interface Principle {
 export const principles: Principle[] = [
   {
     title: "Teach first, then talk",
-    description: "Beginners are guided through the basics before Mimi ever expects an independent conversation.",
+    description: "Beginners are guided through the basics before Yumi ever expects an independent conversation.",
     icon: BookOpenCheck,
   },
   {

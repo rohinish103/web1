@@ -28,7 +28,7 @@ export function VisualLearning() {
               See it. Hear it. <SerifAccent>Remember it.</SerifAccent>
             </>
           }
-          description="Here's how Mimi could introduce new Japanese words — with an illustration, a pronunciation guide, and sentences you'd actually say. Pick a word to explore."
+          description="Here's how Yumi could introduce new Japanese words — with an illustration, a pronunciation guide, and sentences you'd actually say. Pick a word to explore."
         />
 
         <Reveal className="mt-14">

@@ -34,7 +34,7 @@ export function Features() {
               Learning that feels like <SerifAccent>a conversation.</SerifAccent>
             </>
           }
-          description="Everything in Mimi is designed around one idea: you learn a language best by using it — with patience, context, and a little delight."
+          description="Everything in Yumi is designed around one idea: you learn a language best by using it — with patience, context, and a little delight."
         />
 
         <ul className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">

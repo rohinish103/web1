@@ -32,7 +32,7 @@ export function Hero() {
                 Preview
               </span>
               <span className="truncate text-muted-foreground">
-                <span className="hidden sm:inline">Mimi is coming soon — </span>Join the waitlist
+                <span className="hidden sm:inline">Yumi is coming soon — </span>Join the waitlist
               </span>
               <ArrowRight
                 className="size-3.5 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5"
@@ -53,7 +53,7 @@ export function Hero() {
 
           <Rise step={2}>
             <p className="max-w-xl text-lg leading-relaxed text-pretty text-muted-foreground sm:text-xl">
-              Meet Mimi, your AI language-learning companion. Practice real conversations, discover new
+              Meet Yumi, your AI language-learning companion. Practice real conversations, discover new
               words visually, and learn at your own pace.
             </p>
           </Rise>

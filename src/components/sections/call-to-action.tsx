@@ -40,7 +40,7 @@ export function CallToAction() {
             <span className="font-serif font-normal italic text-gradient pr-[0.08em]">starts here.</span>
           </h2>
           <p className="max-w-lg text-lg text-pretty text-muted-foreground">
-            Discover a more natural way to learn languages with Mimi.
+            Discover a more natural way to learn languages with Yumi.
           </p>
           <Button asChild variant="hero" size="cta" className="mt-2 h-14 px-8 text-base">
             <Link href={WAITLIST_HREF}>

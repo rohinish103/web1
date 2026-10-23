@@ -1,8 +1,8 @@
 export const siteConfig = {
-  name: "Mimi",
+  name: "Yumi",
   tagline: "Learn a language. Make a connection.",
   description:
-    "Meet Mimi, your AI language-learning companion. Practice real conversations, discover new words visually, and learn at your own pace.",
+    "Meet Yumi, your AI language-learning companion. Practice real conversations, discover new words visually, and learn at your own pace.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
 } as const;
 

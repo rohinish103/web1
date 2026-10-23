@@ -44,7 +44,7 @@ export function SiteFooter() {
         <div className="flex flex-col gap-4">
           <Logo />
           <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
-            Mimi is an AI-powered language-learning companion that helps you learn through natural
+            Yumi is an AI-powered language-learning companion that helps you learn through natural
             conversations, personal guidance, and visual learning.
           </p>
           <div>
@@ -87,7 +87,7 @@ export function SiteFooter() {
       </div>
       <div className="border-t border-violet/10">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-5 py-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>© Mimi. All rights reserved.</p>
+          <p>© Yumi. All rights reserved.</p>
           <p>Prototype landing page · All conversations and examples are sample content.</p>
         </div>
       </div>

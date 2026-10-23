@@ -25,7 +25,7 @@ export function Philosophy() {
               <span className="font-serif font-normal italic text-violet-200">More communication.</span>
             </h2>
             <p className="max-w-md text-lg leading-relaxed text-pretty text-white/70">
-              Mimi exists to help people connect across languages. Instead of endless flashcards, Mimi
+              Yumi exists to help people connect across languages. Instead of endless flashcards, Yumi
               builds your confidence one real exchange at a time — with friendly AI tutors, personal
               guidance, and visual learning.
             </p>
