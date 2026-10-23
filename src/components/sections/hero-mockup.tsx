@@ -30,7 +30,7 @@ export function HeroMockup() {
       style={{ animationDelay: "200ms" }}
       className="animate-rise relative mx-auto w-full max-w-md lg:max-w-none"
       role="img"
-      aria-label="Preview of a Mimi lesson: Mimi greets the learner in Japanese with “Konnichiwa”, the learner replies, and a vocabulary card explains the word."
+      aria-label="Preview of a Yumi lesson: Yumi greets the learner in Japanese with “Konnichiwa”, the learner replies, and a vocabulary card explains the word."
     >
       <div
         aria-hidden="true"
@@ -73,7 +73,7 @@ export function HeroMockup() {
               <span className="absolute -right-0.5 -bottom-0.5 size-3 rounded-full border-2 border-white bg-emerald-400" />
             </div>
             <div className="min-w-0 flex-1">
-              <p className="text-sm font-semibold text-ink">Mimi</p>
+              <p className="text-sm font-semibold text-ink">Yumi</p>
               <p className="truncate text-xs text-muted-foreground">Japanese · Beginner · Greetings</p>
             </div>
             <span className="rounded-full bg-violet/10 px-2.5 py-1 text-[11px] font-medium text-violet">

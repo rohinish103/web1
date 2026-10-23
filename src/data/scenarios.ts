@@ -10,15 +10,15 @@ export const scenarios: Scenario[] = [
     language: "ja-JP",
     languageName: "Japanese",
     icon: Users,
-    tutorName: "Mimi",
+    tutorName: "Yumi",
     accent: "from-rose-300 to-violet-300",
     turns: [
       {
         id: "1",
         speaker: "tutor",
-        text: "はじめまして！ミミです。",
-        romanization: "Hajimemashite! Mimi desu.",
-        translation: "Nice to meet you! I'm Mimi.",
+        text: "はじめまして！ユミです。",
+        romanization: "Hajimemashite! Yumi desu.",
+        translation: "Nice to meet you! I'm Yumi.",
       },
       {
         id: "2",

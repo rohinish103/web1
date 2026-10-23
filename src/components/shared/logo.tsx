@@ -19,7 +19,7 @@ export function LogoMark({ className }: { className?: string }) {
         fill={`url(#${id}-g)`}
       />
       <path
-        d="M9.5 18.5v-4.25a3.25 3.25 0 0 1 6.5 0v4.25m0-4.25a3.25 3.25 0 0 1 6.5 0v4.25"
+        d="M10.5 9.5l6.1 7.8M21.5 9.5l-7.7 12"
         fill="none"
         stroke="#fff"
         strokeWidth="2.4"
@@ -39,10 +39,10 @@ export function Logo({ className }: { className?: string }) {
         "group inline-flex items-center gap-2 rounded-full outline-none focus-visible:ring-3 focus-visible:ring-ring/50",
         className,
       )}
-      aria-label="Mimi home"
+      aria-label="Yumi home"
     >
       <LogoMark className="transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-105" />
-      <span className="text-xl font-semibold tracking-tight text-ink">mimi</span>
+      <span className="text-xl font-semibold tracking-tight text-ink">yumi</span>
     </Link>
   );
 }

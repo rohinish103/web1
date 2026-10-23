@@ -16,7 +16,7 @@ export function Languages() {
               One world. <SerifAccent>Many languages.</SerifAccent>
             </>
           }
-          description="Mimi is being built to speak with learners around the world. Here is the language coverage we're planning — tutors will roll out gradually, starting with Japanese previews."
+          description="Yumi is being built to speak with learners around the world. Here is the language coverage we're planning — tutors will roll out gradually, starting with Japanese previews."
         />
 
         <ul className="mt-14 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-5">

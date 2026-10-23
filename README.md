@@ -1,6 +1,6 @@
-# Mimi — Landing Page
+# Yumi — Landing Page
 
-Marketing landing page for **Mimi**, an AI-powered multilingual language-learning companion.
+Marketing landing page for **Yumi**, an AI-powered multilingual language-learning companion.
 
 This is a front-end prototype: every conversation, vocabulary card, and tutor persona is static
 mock data. There are no AI calls, speech APIs, accounts, payments, or databases.
@@ -58,7 +58,7 @@ src/
 ## Future integration notes
 
 The preview components are deliberately driven by typed data so they can later be backed by
-Mimi's Microsoft Foundry voice agents without rewriting the UI:
+Yumi's Microsoft Foundry voice agents without rewriting the UI:
 
 - `ConversationTurn` / `Scenario` (`src/types/learning.ts`) model a tutor ↔ learner exchange,
   including optional romanization, translation, and gentle corrections. A live session can stream

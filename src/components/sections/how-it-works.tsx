@@ -47,13 +47,13 @@ export function HowItWorks() {
       <div className="mx-auto max-w-6xl px-5">
         <SectionHeading
           id="how-title"
-          eyebrow="How Mimi works"
+          eyebrow="How Yumi works"
           title={
             <>
               Three steps to your <SerifAccent>first conversation.</SerifAccent>
             </>
           }
-          description="No placement exams, no pressure. Mimi meets you where you are and grows with you."
+          description="No placement exams, no pressure. Yumi meets you where you are and grows with you."
         />
 
         <div className="relative mt-16">
